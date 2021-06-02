@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -12,9 +12,7 @@
       />
       <script src="https://www.google.com/recaptcha/api.js"></script>
       <title>Subscribe Form</title>
-    </head>
-  
-    <body>
+    </head>    <body>
       <div class="container">
         <h1>reCaptcha</h1>
         <form id="subscribeForm">
@@ -27,26 +25,21 @@
             <input type="text" name="email" id="email" class="form-control" />
           </div>
           <div class="form-group">
-            <div 
+            <div
             class="g-recaptcha"
             data-sitekey="6LftJfEaAAAAALGxrWHkSI77civeGYe8s_Xmvnj_"
             ></div>
           </div>
           <input type="submit" value="Submit" class="btn btn-primary" />
         </form>
-      </div>
-  
-      <script>
-
-        document.getElementById('subscribeForm').addEventListener('submit', e => {
-          e.preventDefault();
-  
-          const name = document.querySelector('#name').value;
+      </div>     
+       <script> 
+              document.getElementById('subscribeForm').addEventListener('submit', e => {
+          e.preventDefault();          const name = document.querySelector('#name').value;
           const email = document.querySelector('#email').value;
           const captcha = document.querySelector('#g-recaptcha-response').value;
-          console.log(captcha)
-  
-          return fetch('/subscribe', {
+          console.log(captcha)   
+            return fetch('/subscribe', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ captcha })

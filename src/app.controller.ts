@@ -12,13 +12,13 @@ export class AppController {
 
   @Get()
   @Render('index')
-  async cute(@Body() body){}
+  async cute(@Body() body){ console.log(body) }
 
-  @Post('/subscribe')
+  @Post('subscribe')
   async captcha(@Body() body){
-
-
-    if(!body === undefined || body === '' || body === null){
+      
+      console.log(body.captcha)
+    if(!body.captcha === undefined || body.captcha === '' || body.captcha === null){
       return { success: false, msg: 'Please select captcha' };
     } 
     
